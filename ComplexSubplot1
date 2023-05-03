@@ -1,0 +1,44 @@
+from matplotlib import pyplot as plt
+
+#years
+x = range(2000,2022)
+
+# Firearm Deaths
+y1 = [28.66, 29.57, 30.24, 30.14, 29.57, 30.69, 30.9, 31.22, 31.59, 31.35, 31.67, 32.35, 33.56, 33.64, 33.6, 36.25, 38.66, 39.77, 39.74, 39.71, 45.22, 48.83]
+
+# Gun production per year
+y2 = [3.79, 2.93, 3.37, 3.31, 3.10, 3.24, 3.65, 3.92, 4.5, 5.56, 5.46, 6.54, 8.58, 10.84, 9.05, 9.36, 11.5, 8.33, 9.05, 7.01, 11.06, 13.8]
+
+# just in case 
+plt.close('all')
+
+fig = plt.figure()
+
+ax = fig.add_subplot(211)
+ax.plot(x,y1,color = 'red', marker = 'x', label = 'Gun Deaths')
+ax.set_ylabel('Gun Deaths (thousands)')
+ax.set_xlabel('Year')
+
+ax2 = fig.add_subplot(211, frame_on = False)
+ax2.plot(x,y2,color = 'gray', marker = 's', label = 'Guns Manufactured')
+ax2.yaxis.tick_right()
+ax2.set_ylabel('Guns Manufactured (thousands)')
+ax2.yaxis.set_label_coords(1.12,.38)
+
+ax3 = fig.add_subplot(223)
+ax3.plot(x,y1,color = 'red', linestyle = 'dotted')
+ax3.set_ylabel('Gun Deaths (thousands)', size = 'small')
+ax3.set_xlabel('Year', size = 'small')
+
+ax4 = fig.add_subplot(224)
+ax4.plot(x,y2,color = 'gray', linestyle = 'dashed')
+ax4.set_ylabel('Guns Manufactured (thousands)', size = 'small')
+ax4.set_xlabel('Year')
+
+fig.subplots_adjust(wspace=0.5,
+                    hspace=0.5)
+
+
+fig.legend(loc = 'upper left')
+
+plt.show()
