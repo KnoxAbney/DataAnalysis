@@ -35,5 +35,6 @@ ax2.set_xticklabels(months)
 ax2.legend()
 ax2.set_title("Sales by Lime Varietal")
 
+fig.savefig('LimeData.png')
 
 plt.show()
